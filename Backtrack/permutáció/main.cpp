@@ -37,16 +37,16 @@ void backtracking(int n){
             v[index] = 0;
             index--;
             v[index]++;
-        }
-
-        if(dupla(n, v, v[index]) == DUPLA){
-            v[index]++;
-        } else if(v[index] <= n){
-            if(index < n-1){
-                v[++index] = 1;
-            }else{
-                kiVektor(n, v);
+        }else{
+            if(dupla(n, v, v[index]) == DUPLA){
                 v[index]++;
+            } else{
+                if(index < n-1){
+                    v[++index] = 1;
+                }else{
+                    kiVektor(n, v);
+                    v[index]++;
+                }
             }
         }
     }
